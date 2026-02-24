@@ -4,10 +4,12 @@ class Program
 {
     static void Main()
     {
+        // This program asks the user for their favorite lucky number and responds with a message based on the number entered.
         Console.WriteLine("Enter your favorite lucky number please!");
-        if(int.TryParse(Console.ReadLine(), out int number))
+        if (int.TryParse(Console.ReadLine(), out int number))
         {
-            switch(number)
+            // The switch statement evaluates the user's input and provides a response based on the lucky number they entered.
+            switch (number)
             {
                 case 7:
                     Console.WriteLine("7 is often considered the luckiest number in many cultures!");
@@ -29,26 +31,30 @@ class Program
         }
         else
         {
+            // If the user enters an invalid input that cannot be parsed as an integer, the program will display an error message.
             Console.WriteLine("Invalid input. Please enter a valid integer.");
 
         }
-        Console.WriteLine("Do you have any other lucky numbers? (yes/no)");
-        string response = Console.ReadLine().Trim().ToLower();
-        {   if (response == "yes")
+        // This part of the program asks the user whether they think cats are better than dogs and responds accordingly.
+        Console.WriteLine("Cats are better than dogs (true/false)");
+        if (bool.TryParse(Console.ReadLine(), out bool catsAreBetter))
+        {
+            if (catsAreBetter)
             {
-                Console.WriteLine("Please enter your other lucky numbers!");
-                string[] luckyNumbers = Console.ReadLine().Split(',');
-                Console.WriteLine("Your other lucky numbers are very lucky! Here they are!");
-                foreach (string luckyNumber in luckyNumbers)
-                {
-                    Console.WriteLine(luckyNumber.Trim());
-                }
+                Console.WriteLine("You are a cat person!");
             }
             else
             {
-                Console.WriteLine("Thank you for sharing your lucky number!");
+                Console.WriteLine("You are a dog person!");
             }
-             
+        }
+        else
+        {
+            // If the user enters an invalid input that cannot be parsed as a boolean, the program will display an error message.
+            Console.WriteLine("Invalid input. Please enter 'true' or 'false'.");
+
+
+
         }
     }
 }
